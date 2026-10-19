@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ミチル 予算と実績の図解</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--sub:#5b6676;--line:#e3e7ee;
+--m:#2a78d6;--a:#eb6834;--y:#1baf7a;--g:#6250d6;--best:#e8f3ff;--low:#fff1ec;
+--y24:#c9d8ee;--y25:#7fa6dc;--y26:#2a78d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#12161c;--card:#1a2029;--ink:#e8ecf2;--sub:#9aa5b5;--line:#2a323f;
+--m:#3987e5;--a:#d95926;--y:#199e70;--g:#9085e9;--best:#1c2d44;--low:#3a2420;--y24:#33465f;--y25:#4f77ad;--y26:#3987e5}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 "Hiragino Sans","Noto Sans JP",system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:20px;margin:0 0 4px} h2{font-size:17px;margin:0 0 4px}
+.lead{color:var(--sub);font-size:13px;margin:0 0 16px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px;margin:14px 0}
+.num{display:inline-block;background:var(--ink);color:var(--bg);border-radius:50%;width:24px;height:24px;line-height:24px;text-align:center;font-size:13px;margin-right:8px}
+.cap{color:var(--sub);font-size:12.5px;margin:6px 0 0}
+.tag{font-size:11.5px;border-radius:4px;padding:1px 6px;border:1px solid var(--line);color:var(--sub);white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{padding:5px 6px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+th{text-align:left;font-weight:600;white-space:nowrap} thead th{color:var(--sub);font-weight:500;font-size:12px;text-align:right}
+thead th:first-child{text-align:left}
+.wrapt th{white-space:normal} .wrapt td{white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+.conc{margin:0;padding-left:1.2em} .conc li{margin:6px 0}
+/* 今の予算 */
+.stack{display:flex;height:34px;border-radius:6px;overflow:hidden;gap:2px;margin:10px 0 6px}
+.stack i{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;background:var(--c)}
+.m{background:var(--m)} .a{background:var(--a)} .y{background:var(--y)} .g{background:var(--g)}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+.card{border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12.5px;color:var(--sub)}
+.card b{display:block;color:var(--ink);font-size:16px}
+/* 年別バー表 */
+.ytab td{position:relative;padding:5px 6px;min-width:70px}
+.ytab td .bar{position:absolute;left:0;top:3px;bottom:3px;border-radius:0 4px 4px 0;opacity:.9}
+.ytab td b{position:relative;font-weight:600}
+.y2024 .bar{background:var(--y24)} .y2025 .bar{background:var(--y25)} .y2026 .bar{background:var(--y26)}
+.ytab td.best b::after{content:" ▲山";color:var(--a);font-size:11px} .ytab td.low b::after{content:" ▼谷";color:var(--sub);font-size:11px}
+.ytab td.y2026 .bar{opacity:.85}
+.ytab td.y2026 b{color:var(--ink)}
+.na{color:var(--sub);font-size:12px}
+.ytab thead th{text-align:left;padding-left:6px}
+/* 割り振り棒 */
+.prow{display:grid;grid-template-columns:7.2em 1fr 3.6em;gap:0 8px;align-items:center;margin:7px 0}
+.plab{font-size:13px;white-space:nowrap} .ptot{font-size:13px;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.pbar{display:flex;height:20px;gap:2px} .pbar i{display:block;height:100%}
+.pbar i:first-child{border-radius:4px 0 0 4px} .pbar i:last-child{border-radius:0 4px 4px 0}
+.pmemo{grid-column:2/4;font-size:12px;color:var(--sub);margin-top:-2px}
+details{margin-top:10px} summary{cursor:pointer;color:var(--sub);font-size:13px}
+.box{border-left:4px solid var(--g);padding:6px 12px;margin:10px 0 0;background:var(--bg);border-radius:0 8px 8px 0;font-size:13.5px}
+.sw{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:12px;color:var(--sub);margin-top:4px}
+@media (max-width:420px){table{font-size:12.5px} th,td{padding:5px 3px} .prow{grid-template-columns:5.6em 1fr 3.4em} .ytab td{min-width:56px} .cards{gap:6px} .card b{font-size:15px}}
+</style></head><body><main>
+
+<h1>ミチル 予算と実績の図解</h1>
+<p class="lead">2026-10-18 作成・社内用（実際の金額入り。外部公開しない）。数字は金額のまま載せています。</p>
+
+<section><h2><span class="num">★</span>先に結論（4つ）</h2>
+<ol class="conc">
+<li><b>今の広告費は、設定で1日¥9,300（Amazon枠¥4,800含む）、実際に使えているのは約¥7,130（月約21万円）。</b>Meta・Amazon・Yahooの3つ。Googleはまだ使っていません。</li>
+<li><b>去年・一昨年の売上は「月」ではなく「セール期間」で動いていました。</b>秋の山＝Amazonのセール（前年は10/4〜10と11/21〜27）。12月は谷。</li>
+<li><b>定期のお客様は、解約の山が1〜2回目の直後。</b>1人獲得の費用は約¥7,500、累計売上が超えるのは4回目あたり。続けてもらう施策が広告費の使い道として有力。</li>
+<li><b>だから12か月の予算は、基本は今のまま。動かすのは「11月のセール期間（Amazonは追加投入）」と「12月のAmazon」だけ。</b>Googleは今の予算から削らず、別の枠として足す案。</li>
+</ol></section>
+
+<section><h2><span class="num">1</span>今の予算（1日あたり）</h2>
+<p class="lead">設定している額（枠）と、実際に使えている額</p>
+<div class="stack"><i class="m" style="width:40.9%"></i><i class="a" style="width:51.6%"></i><i class="y" style="width:7.5%"></i></div>
+<div class="legend"><span style="--c:var(--m)">Meta（Instagram・Facebook）¥3,800</span><span style="--c:var(--a)">Amazon広告 ¥4,800（自動¥4,000＋手動¥800）</span><span style="--c:var(--y)">Yahoo検索 ¥700</span></div>
+<div class="cards"><div class="card">設定の合計（1日）<b>¥9,300</b></div><div class="card">設定の合計（1か月）<b>約28万円</b></div><div class="card">Google<b>未運用</b></div></div>
+<table class="wrapt" style="margin-top:12px"><thead><tr><th></th><th>設定（枠）</th><th>実際に使えている額</th></tr></thead><tbody>
+<tr><th>Meta</th><td>¥3,800</td><td>約¥3,800（ほぼ満額・10/13〜19は¥2,660）</td></tr>
+<tr><th>Amazon広告</th><td>¥4,800</td><td>約¥2,630（10/1〜12）＝枠の約55%</td></tr>
+<tr><th>Yahoo検索</th><td>¥700</td><td>約¥700</td></tr>
+<tr><th><b>合計</b></th><td><b>¥9,300</b></td><td><b>約¥7,130（月約21万円）</b></td></tr></tbody></table>
+<p class="cap">Amazonは枠を¥4,800にしていても、実際に使えているのは半分強です。<b>Amazonの消化額を決めるのは枠ではなく「入札」</b>（10/15に入札¥58→¥100へ戻したら、消化率が25%→93%になりました）。だから以降の「Amazonを絞る・増やす」は、枠ではなく入札で動かします。Metaは10/13〜19だけセール対応で¥2,660に下げています（20日に戻す予定）。</p>
+</section>
+
+<section><h2><span class="num">2</span>去年・一昨年の結果</h2>
+<p class="lead">全社の月別売上（万円）。濃いほど新しい年。<span class="tag">客Excel・卸含む・確度B</span></p>
+<table class="ytab"><thead><tr><th></th><th>2024年</th><th>2025年</th><th>2026年</th></tr></thead><tbody><tr><th>1月</th><td class="y2024" title="2024年1月 446,380円"><span class="bar" style="width:39.8%"></span><b>45</b></td><td class="y2025" title="2025年1月 537,087円"><span class="bar" style="width:47.9%"></span><b>54</b></td><td class="y2026" title="2026年1月 641,668円"><span class="bar" style="width:57.2%"></span><b>64</b></td></tr><tr><th>2月</th><td class="y2024" title="2024年2月 573,522円"><span class="bar" style="width:51.1%"></span><b>57</b></td><td class="y2025" title="2025年2月 796,942円"><span class="bar" style="width:71.0%"></span><b>80</b></td><td class="y2026" title="2026年2月 941,650円"><span class="bar" style="width:83.9%"></span><b>94</b></td></tr><tr><th>3月</th><td class="y2024 low" title="2024年3月 321,441円"><span class="bar" style="width:28.7%"></span><b>32</b></td><td class="y2025" title="2025年3月 605,529円"><span class="bar" style="width:54.0%"></span><b>61</b></td><td class="y2026" title="2026年3月 640,929円"><span class="bar" style="width:57.1%"></span><b>64</b></td></tr><tr><th>4月</th><td class="y2024" title="2024年4月 578,493円"><span class="bar" style="width:51.6%"></span><b>58</b></td><td class="y2025 low" title="2025年4月 456,268円"><span class="bar" style="width:40.7%"></span><b>46</b></td><td class="y2026 low" title="2026年4月 531,765円"><span class="bar" style="width:47.4%"></span><b>53</b></td></tr><tr><th>5月</th><td class="y2024" title="2024年5月 406,304円"><span class="bar" style="width:36.2%"></span><b>41</b></td><td class="y2025" title="2025年5月 690,782円"><span class="bar" style="width:61.6%"></span><b>69</b></td><td class="y2026" title="2026年5月 706,591円"><span class="bar" style="width:63.0%"></span><b>71</b></td></tr><tr><th>6月</th><td class="y2024" title="2024年6月 481,469円"><span class="bar" style="width:42.9%"></span><b>48</b></td><td class="y2025" title="2025年6月 815,778円"><span class="bar" style="width:72.7%"></span><b>82</b></td><td class="y2026" title="2026年6月 697,080円"><span class="bar" style="width:62.1%"></span><b>70</b></td></tr><tr><th>7月</th><td class="y2024" title="2024年7月 563,282円"><span class="bar" style="width:50.2%"></span><b>56</b></td><td class="y2025 best" title="2025年7月 931,513円"><span class="bar" style="width:83.0%"></span><b>93</b></td><td class="y2026 best" title="2026年7月 1,121,832円"><span class="bar" style="width:100.0%"></span><b>112</b></td></tr><tr><th>8月</th><td class="y2024 best" title="2024年8月 918,762円"><span class="bar" style="width:81.9%"></span><b>92</b></td><td class="y2025" title="2025年8月 739,467円"><span class="bar" style="width:65.9%"></span><b>74</b></td><td class="y2026" title="2026年8月 800,107円"><span class="bar" style="width:71.3%"></span><b>80</b></td></tr><tr><th>9月</th><td class="y2024" title="2024年9月 749,009円"><span class="bar" style="width:66.8%"></span><b>75</b></td><td class="y2025" title="2025年9月 787,271円"><span class="bar" style="width:70.2%"></span><b>79</b></td><td class="y2026" title="2026年9月 861,991円"><span class="bar" style="width:76.8%"></span><b>86</b></td></tr><tr><th>10月</th><td class="y2024" title="2024年10月 680,241円"><span class="bar" style="width:60.6%"></span><b>68</b></td><td class="y2025" title="2025年10月 715,802円"><span class="bar" style="width:63.8%"></span><b>72</b></td><td class="na">まだ</td></tr><tr><th>11月</th><td class="y2024" title="2024年11月 725,318円"><span class="bar" style="width:64.7%"></span><b>73</b></td><td class="y2025" title="2025年11月 566,761円"><span class="bar" style="width:50.5%"></span><b>57</b></td><td class="na">まだ</td></tr><tr><th>12月</th><td class="y2024" title="2024年12月 570,849円"><span class="bar" style="width:50.9%"></span><b>57</b></td><td class="y2025" title="2025年12月 809,930円"><span class="bar" style="width:72.2%"></span><b>81</b></td><td class="na">まだ</td></tr></tbody></table>
+<p class="cap">▲山＝その年の最高月、▼谷＝最低月。年ごとに山の月が変わっていて（2024は8月、2025は7月、2026は7月）、月だけでは決まらない。卸（売上の約27%）や成長分も混ざっています。</p>
+
+<h2 style="margin-top:20px">Amazonの注文数（件）</h2>
+<p class="lead">2024年10月から<span class="tag">注文レポート・確度A</span></p>
+<table class="ytab"><thead><tr><th></th><th>2024年</th><th>2025年</th><th>2026年</th></tr></thead><tbody><tr><th>1月</th><td class="na">—</td><td class="y2025"><span class="bar" style="width:66.5%"></span><b>127</b></td><td class="y2026"><span class="bar" style="width:63.9%"></span><b>122</b></td></tr><tr><th>2月</th><td class="na">—</td><td class="y2025"><span class="bar" style="width:51.8%"></span><b>99</b></td><td class="y2026"><span class="bar" style="width:40.8%"></span><b>78</b></td></tr><tr><th>3月</th><td class="na">—</td><td class="y2025"><span class="bar" style="width:51.3%"></span><b>98</b></td><td class="y2026"><span class="bar" style="width:63.9%"></span><b>122</b></td></tr><tr><th>4月</th><td class="na">—</td><td class="y2025"><span class="bar" style="width:60.2%"></span><b>115</b></td><td class="y2026"><span class="bar" style="width:61.8%"></span><b>118</b></td></tr><tr><th>5月</th><td class="na">—</td><td class="y2025"><span class="bar" style="width:59.7%"></span><b>114</b></td><td class="y2026"><span class="bar" style="width:84.8%"></span><b>162</b></td></tr><tr><th>6月</th><td class="na">—</td><td class="y2025"><span class="bar" style="width:92.7%"></span><b>177</b></td><td class="y2026"><span class="bar" style="width:54.5%"></span><b>104</b></td></tr><tr><th>7月</th><td class="na">—</td><td class="y2025"><span class="bar" style="width:56.0%"></span><b>107</b></td><td class="y2026"><span class="bar" style="width:100.0%"></span><b>191</b></td></tr><tr><th>8月</th><td class="na">—</td><td class="y2025"><span class="bar" style="width:42.9%"></span><b>82</b></td><td class="y2026"><span class="bar" style="width:79.1%"></span><b>151</b></td></tr><tr><th>9月</th><td class="na">—</td><td class="y2025"><span class="bar" style="width:48.2%"></span><b>92</b></td><td class="y2026"><span class="bar" style="width:52.4%"></span><b>100</b></td></tr><tr><th>10月</th><td class="y2024"><span class="bar" style="width:76.4%"></span><b>146</b></td><td class="y2025"><span class="bar" style="width:79.1%"></span><b>151</b></td><td class="na">—</td></tr><tr><th>11月</th><td class="y2024"><span class="bar" style="width:69.1%"></span><b>132</b></td><td class="y2025"><span class="bar" style="width:77.0%"></span><b>147</b></td><td class="na">—</td></tr><tr><th>12月</th><td class="y2024"><span class="bar" style="width:49.7%"></span><b>95</b></td><td class="y2025"><span class="bar" style="width:29.8%"></span><b>57</b></td><td class="na">—</td></tr></tbody></table>
+<p class="cap">2025年の10〜11月は広告を厚くした時期で件数が伸び、12月は急に減る（57件）。2026年の1月以降は広告費の増減に連動しています。2026年10月は途中のため載せていません。2024年9月以前のAmazon注文は、Seller Centralで取れる範囲の外です。</p>
+
+<h2 style="margin-top:20px">秋冬の2年比較（Amazon）</h2>
+<table class="wrapt"><thead><tr><th></th><th>注文 2024-25</th><th>注文 2025-26</th><th>広告費 2024-25</th><th>広告費 2025-26</th></tr></thead><tbody>
+<tr><th>10月</th><td>146件</td><td>151件</td><td>（データ無し）</td><td>9.8万</td></tr>
+<tr><th>11月</th><td>132件</td><td>147件</td><td>13.4万</td><td>10.9万</td></tr>
+<tr><th>12月</th><td><b>95件</b></td><td><b>57件</b></td><td>8.9万</td><td>6.0万</td></tr>
+<tr><th>1月</th><td>127件</td><td>122件</td><td>13.2万</td><td>9.3万</td></tr></tbody></table>
+<p class="cap">2年とも「10〜11月が高く、12月が谷、1月に戻る」。12月は広告費も11月の約65%・55%まで絞られていました。広告の効率（広告売上÷広告費）は、12月が2024年1.92・2025年0.96、11月が1.75・1.69、1月が1.22。<b>12月に広告の効率が必ず悪くなるわけではありません。</b></p>
+<h2 style="margin-top:20px">去年の秋冬：いくら使って何件売れたか（3媒体）</h2>
+<table class="wrapt"><thead><tr><th></th><th>Amz広告</th><th>Meta</th><th>Yahoo</th><th>計</th><th>注文</th><th>効率</th></tr></thead><tbody><tr><th>10月</th><td>9.8万</td><td>0.8万</td><td>5.5万</td><td><b>16.0万</b></td><td><b>151件</b></td><td>1.96</td></tr><tr><th>11月</th><td>10.9万</td><td>1.6万</td><td>5.5万</td><td><b>18.0万</b></td><td><b>147件</b></td><td>1.69</td></tr><tr><th>12月</th><td>6.0万</td><td>1.6万</td><td>5.2万</td><td><b>12.9万</b></td><td><b>57件</b></td><td>0.96</td></tr></tbody></table>
+<p class="cap">「Amz広告」＝Amazon広告費、「注文」＝Amazon全体の注文数、「効率」はAmazon広告の売上÷広告費（1.0＝使った額と同じだけ売れた）。12月は0.96で、使ったほど売れていません。去年のMetaは月1〜2万円とほぼ使っていないので、秋の山はMetaの成果ではありません。</p>
+<div class="box">原価（粗利）がまだ分からないため、「何倍までなら黒字か」は決められません。ここは会議で聞く最優先の質問です。</div>
+</section>
+
+<section><h2><span class="num">3</span>そこから分かること</h2>
+<ul class="conc">
+<li><b>秋冬の形は2年とも同じ。</b>10〜11月が高く、12月が谷、1月に戻る（注文数：10月 146→151、11月 132→147、12月 95→57、1月 127→122）。<br>確度A・2年分。</li>
+<li><b>山はセール期間に集中。</b>前年の10〜11月、注文の52%が14日間（10/4〜10・11/21〜27）に集まり、それ以外の日は1日約3件。</li>
+<li><b>セール期間に広告費を2〜4倍にすると、効率は12〜40%落ちる。</b>広告費を増やしても注文は同じ倍率では増えない。</li>
+<li><b>12月が谷（2年とも）。</b>注文は2024年12月95件（11月132件）、2025年12月57件（11月147件）。広告の効率は2024年が1.92、2025年が0.96と年で違うので、Amazonは「少し絞る」まで。</li>
+<li><b>Meta・Yahooは季節で動かす証拠がない。</b>月による売上の差は、Metaの予算ではなくLP・カート・流入で決まっていた。</li>
+</ul></section>
+
+<section><h2><span class="num">4</span>今の予算で、12か月をどう割り振るか</h2>
+<p class="lead">実際に使う額（Amazonは消化の見込み）の月額の目安（円）。Amazonの枠¥4,800は触らず、入札で調整。<span class="tag">提案・日程が出たら更新</span></p>
+<div class="legend"><span style="--c:var(--m)">Meta</span><span style="--c:var(--a)">Amazon広告</span><span style="--c:var(--y)">Yahoo検索</span></div>
+<div class="prow"><div class="plab">10月（20日〜月末）</div><div class="pbar"><i class="m" style="width:20.63%" title="Meta ¥45,600"></i><i class="a" style="width:14.28%" title="Amazon広告 ¥31,560"></i><i class="y" style="width:3.80%" title="Yahoo ¥8,400"></i></div><div class="ptot">8.6万</div><div class="pmemo">セール明け。Meta戻しは2段階案</div></div><div class="prow"><div class="plab">11月</div><div class="pbar"><i class="m" style="width:44.78%" title="Meta ¥98,970"></i><i class="a" style="width:44.03%" title="Amazon広告 ¥97,310"></i><i class="y" style="width:9.50%" title="Yahoo ¥21,000"></i></div><div class="ptot">21.7万</div><div class="pmemo">ブラックフライデー。セール期間だけ動かす</div></div><div class="prow"><div class="plab">12月</div><div class="pbar"><i class="m" style="width:53.30%" title="Meta ¥117,800"></i><i class="a" style="width:32.26%" title="Amazon広告 ¥71,300"></i><i class="y" style="width:9.82%" title="Yahoo ¥21,700"></i></div><div class="ptot">21.1万</div><div class="pmemo">Amazonは少し絞る（2年とも注文は谷）</div></div><div class="prow"><div class="plab">1月</div><div class="pbar"><i class="m" style="width:53.30%" title="Meta ¥117,800"></i><i class="a" style="width:36.89%" title="Amazon広告 ¥81,530"></i><i class="y" style="width:9.82%" title="Yahoo ¥21,700"></i></div><div class="ptot">22.1万</div><div class="pmemo">いつも通り</div></div><div class="prow"><div class="plab">2月</div><div class="pbar"><i class="m" style="width:48.14%" title="Meta ¥106,400"></i><i class="a" style="width:33.32%" title="Amazon広告 ¥73,640"></i><i class="y" style="width:8.87%" title="Yahoo ¥19,600"></i></div><div class="ptot">20.0万</div><div class="pmemo">いつも通り</div></div><div class="prow"><div class="plab">3月</div><div class="pbar"><i class="m" style="width:53.30%" title="Meta ¥117,800"></i><i class="a" style="width:36.89%" title="Amazon広告 ¥81,530"></i><i class="y" style="width:9.82%" title="Yahoo ¥21,700"></i></div><div class="ptot">22.1万</div><div class="pmemo">いつも通り</div></div><div class="prow"><div class="plab">4月</div><div class="pbar"><i class="m" style="width:51.58%" title="Meta ¥114,000"></i><i class="a" style="width:35.70%" title="Amazon広告 ¥78,900"></i><i class="y" style="width:9.50%" title="Yahoo ¥21,000"></i></div><div class="ptot">21.4万</div><div class="pmemo">いつも通り</div></div><div class="prow"><div class="plab">5月</div><div class="pbar"><i class="m" style="width:53.30%" title="Meta ¥117,800"></i><i class="a" style="width:36.89%" title="Amazon広告 ¥81,530"></i><i class="y" style="width:9.82%" title="Yahoo ¥21,700"></i></div><div class="ptot">22.1万</div><div class="pmemo">いつも通り</div></div><div class="prow"><div class="plab">6月</div><div class="pbar"><i class="m" style="width:51.58%" title="Meta ¥114,000"></i><i class="a" style="width:35.70%" title="Amazon広告 ¥78,900"></i><i class="y" style="width:9.50%" title="Yahoo ¥21,000"></i></div><div class="ptot">21.4万</div><div class="pmemo">いつも通り</div></div><div class="prow"><div class="plab">7月</div><div class="pbar"><i class="m" style="width:53.30%" title="Meta ¥117,800"></i><i class="a" style="width:36.89%" title="Amazon広告 ¥81,530"></i><i class="y" style="width:9.82%" title="Yahoo ¥21,700"></i></div><div class="ptot">22.1万</div><div class="pmemo">プライム系の日程が出たら11月と同じ手順</div></div><div class="prow"><div class="plab">8月</div><div class="pbar"><i class="m" style="width:53.30%" title="Meta ¥117,800"></i><i class="a" style="width:36.89%" title="Amazon広告 ¥81,530"></i><i class="y" style="width:9.82%" title="Yahoo ¥21,700"></i></div><div class="ptot">22.1万</div><div class="pmemo">いつも通り</div></div><div class="prow"><div class="plab">9月</div><div class="pbar"><i class="m" style="width:51.58%" title="Meta ¥114,000"></i><i class="a" style="width:35.70%" title="Amazon広告 ¥78,900"></i><i class="y" style="width:9.50%" title="Yahoo ¥21,000"></i></div><div class="ptot">21.4万</div><div class="pmemo">いつも通り</div></div>
+<div class="cards"><div class="card">10/20〜来年9月の合計<b>約246万円</b></div><div class="card">「今のまま」との差<b>約-1万円</b></div><div class="card">動かす月<b>11月・12月</b></div></div>
+<p class="cap">変えるのは2つだけ。<b>11月</b>＝セール5日前にMetaを−30%、Amazonはセール期間7日だけ最大2倍まで段階的に追加投入（次章）。<b>12月</b>＝Amazonの入札を少し下げ、消化を約¥2,300/日にする（2024年12月は約¥2,860/日で効率1.92、2025年は約¥1,950で0.96。広告の効率が1.0を下回ったら約¥1,900まで）。枠は¥4,800のまま。そのほかの月は今のまま。セール日程（今年はまだ未確認）が出たら、その期間だけ11月と同じ手順で動かす。</p>
+<details><summary>表で見る（月額・円）</summary>
+<table class="wrapt"><thead><tr><th></th><th>Meta</th><th>Amazon</th><th>Yahoo</th><th>合計</th></tr></thead><tbody><tr><th>10月（20日〜月末）</th><td>¥45,600</td><td>¥31,560</td><td>¥8,400</td><td><b>¥85,560</b></td></tr><tr><th>11月</th><td>¥98,970</td><td>¥97,310</td><td>¥21,000</td><td><b>¥217,280</b></td></tr><tr><th>12月</th><td>¥117,800</td><td>¥71,300</td><td>¥21,700</td><td><b>¥210,800</b></td></tr><tr><th>1月</th><td>¥117,800</td><td>¥81,530</td><td>¥21,700</td><td><b>¥221,030</b></td></tr><tr><th>2月</th><td>¥106,400</td><td>¥73,640</td><td>¥19,600</td><td><b>¥199,640</b></td></tr><tr><th>3月</th><td>¥117,800</td><td>¥81,530</td><td>¥21,700</td><td><b>¥221,030</b></td></tr><tr><th>4月</th><td>¥114,000</td><td>¥78,900</td><td>¥21,000</td><td><b>¥213,900</b></td></tr><tr><th>5月</th><td>¥117,800</td><td>¥81,530</td><td>¥21,700</td><td><b>¥221,030</b></td></tr><tr><th>6月</th><td>¥114,000</td><td>¥78,900</td><td>¥21,000</td><td><b>¥213,900</b></td></tr><tr><th>7月</th><td>¥117,800</td><td>¥81,530</td><td>¥21,700</td><td><b>¥221,030</b></td></tr><tr><th>8月</th><td>¥117,800</td><td>¥81,530</td><td>¥21,700</td><td><b>¥221,030</b></td></tr><tr><th>9月</th><td>¥114,000</td><td>¥78,900</td><td>¥21,000</td><td><b>¥213,900</b></td></tr></tbody></table></details>
+<div class="box"><b>Google広告（YouTube含む）を足す場合</b><br>今の3つからは削らず、<b>新しい枠として＋約¥3,000/日（月約9万円）</b>。最初の3週間は約6.3万円で6パターンを並べて試し、勝ちに寄せる案。ライトなら＋¥1,300/日、積極なら＋¥4,800/日。<br><span class="sw">開始案 10/28 → 11/17に判定</span> <span class="sw">購入ではなく視聴率・LPクリックで判定</span></div>
+</section>
+
+<section><h2><span class="num">5</span>Amazonのセール期間：追加で入れるべきか</h2>
+<p class="lead">結論：入れる価値はある。ただし「一気に倍」ではなく、段階的に入れて毎日止め時を見る。振り替えだけでなく、新しい枠も足す。</p>
+<h2 style="margin-top:8px">実績：広告費を増やすと何が起きたか</h2>
+<table class="wrapt"><thead><tr><th>セール</th><th>広告費/日<br>通常→セール</th><th>注文/日<br>通常→セール</th><th>追加1円の<br>広告売上</th></tr></thead><tbody>
+<tr><th>2024 11/5（1日）</th><td>¥3,853→¥8,004<br>（2.1倍）</td><td>2.7→16<br>（5.9倍）</td><td><b>5.76</b></td></tr>
+<tr><th>2024 11/27 BF（1日）</th><td>¥4,090→¥15,296<br>（3.7倍）</td><td>3.7→17<br>（4.6倍）</td><td><b>2.35</b></td></tr>
+<tr><th>2024 12/17（1日）</th><td>¥2,989→¥7,824<br>（2.6倍）</td><td>3.0→14<br>（4.7倍）</td><td><b>4.43</b></td></tr>
+<tr><th>2025 1/21（1日）</th><td>¥3,995→¥8,023<br>（2.0倍）</td><td>3.3→14<br>（4.3倍）</td><td><b>4.14</b></td></tr>
+<tr><th>2025 秋 10/4〜10</th><td>¥2,010→¥6,323<br>（3.1倍）</td><td>2.6→11.9<br>（4.5倍）</td><td><b>2.23</b></td></tr>
+<tr><th>2025 BF 11/21〜27</th><td>¥2,320→¥7,436<br>（3.2倍）</td><td>3.3→10.1<br>（3.1倍）</td><td><b>1.52</b></td></tr>
+<tr><th>2026 スマイル 8/28〜9/3</th><td>¥3,669→¥6,681<br>（1.8倍）</td><td>4.5→8.6<br>（1.9倍）</td><td><b>0.25</b></td></tr>
+<tr><th>2026 先行 10/13〜16</th><td>¥2,631→¥3,488<br>（1.3倍）</td><td>3.2→8.8<br>（2.7倍）</td><td><b>0.36</b></td></tr>
+</tbody></table>
+<p class="cap">「追加1円の広告売上」＝（セール中の広告経由売上−通常の広告経由売上）÷（追加した広告費）。1.0を下回ると、追加した分は広告売上で回収できていません。注文数はAmazon全体で、広告以外も含みます。通常日は直前の1〜3週間の平均で比べました（確度B）。2024年10/19は注文が45件（通常の約9倍）でしたが、10月の広告日次データが無いので表から外しています。2024年は1日限定セール、2025年以降は7日間のセールです。</p>
+<h2 style="margin-top:18px">データから言えること</h2>
+<ul class="conc">
+<li><b>注文が増えるのは、セールそのものの力が大きい。</b>2026年10月は広告費が1.3倍でも注文は2.7倍になりました。広告費を足さなくても、セール中は注文が3〜5倍になります。</li>
+<li><b>2024〜2025年は、広告費を2倍以上にしても追加した分が回収できていた。</b>2024年の1日限定セール4回は追加1円あたり2.4〜5.8倍（広告費は2.0〜3.7倍）、2025年の7日間セール2回は2.2倍・1.5倍。</li>
+<li><b>倍率が上がるほど効率は落ちる。</b>2.0〜2.6倍なら4.1〜5.8、3倍を超えると1.5〜2.4でした。</li>
+<li><b>2026年は、増やした分がほぼ売上に繋がっていない（0.25〜0.36）。</b>今年は全てのセールに参加しているので、参加の差ではありません。消化が増えたのは入札を上げてクリック単価が上がったためで、売れた数は増えていません（8月は入札¥94でクリック単価¥144）。</li>
+<li>つまり<b>「倍にするかどうか」より「どう増やすか」で結果が変わる。</b>入札を上げて消化を増やす形は効率が落ちます。</li>
+</ul>
+<h2 style="margin-top:18px">セール日程（Amazon）</h2>
+<table class="wrapt"><thead><tr><th>セール</th><th>日程</th><th>確度</th></tr></thead><tbody>
+<tr><th>初売り</th><td>2026/1/3〜7</td><td>実績</td></tr>
+<tr><th>スマイルSALE</th><td>1/27〜2/2</td><td>実績</td></tr>
+<tr><th>新生活セール</th><td>3/3〜9（先行3/3〜5）</td><td>実績</td></tr>
+<tr><th>新生活 Final</th><td>3/31〜4/6</td><td>実績</td></tr>
+<tr><th>GWスマイルSALE</th><td>4/30〜5/3</td><td>実績</td></tr>
+<tr><th>スマイルSALE</th><td>5/27〜6/2</td><td>実績</td></tr>
+<tr><th>プライムデー</th><td>7/7〜13（先行7/7〜9）</td><td>実績</td></tr>
+<tr><th>スマイルSALE</th><td>8/28〜9/3</td><td>実績</td></tr>
+<tr><th>プライム感謝祭</th><td>10/13〜19（先行10/13〜15）</td><td>発表済み・今日が最終日</td></tr>
+<tr><th><b>スマイルSALE</b></th><td>10/26〜11/3ごろ</td><td>予想</td></tr>
+<tr><th><b>ブラックフライデー</b></th><td>11/20〜30ごろ（2025年は先行11/21〜23、本11/24〜12/1）</td><td>予想・公式は例年11月中旬</td></tr>
+<tr><th>クリスマスタイムセール</th><td>12/15〜24ごろ</td><td>予想</td></tr>
+<tr><th>初売り・新生活</th><td>2027年1月上旬・3月上旬ごろ</td><td>予想（2026年の実績から）</td></tr>
+</tbody></table>
+<p class="cap">2026年の実績日程は、注文のスパイクが出た日（3/3〜8、4/30、5/27〜6/2、7/7〜13、8/28〜9/3）とぴったり一致しました。今年は全て参加と伺っています。予想はネット記事の推定で、<b>Seller Central上の正式日程は見つかりませんでした</b>ので、BFが発表され次第、日付を確定します。BFが予想どおり11/20〜30なら、セール期間は7日ではなく<b>11日間</b>です（先行3日＋本セール8日）。追加投入は、先行の初日と2日目の結果を見て、本セールに進むかを決めます。出典：<a href="https://news.mynavi.jp/article/20260101-3905429/">マイナビ ニュース（2026年スケジュール）</a>、<a href="https://news.mynavi.jp/article/20251114-3666546/">同（2025年BF）</a>。</p>
+<h2 style="margin-top:18px">追加投入の案（Amazon・セール7日間）</h2>
+<table class="wrapt"><thead><tr><th>段階</th><th>広告費/日</th><th>7日の追加費用</th><th>広告売上の追加見込み</th></tr></thead><tbody>
+<tr><th>① 1.3倍（プライム感謝祭で実施中）</th><td>約¥3,420</td><td>約¥5,500</td><td>約¥1,700〜12,000</td></tr>
+<tr><th><b>② 2倍（BFの基本案・2024年の実績が最も効率が良い倍率）</b></th><td>約¥5,260</td><td>約¥18,400</td><td>約¥5,500〜40,500</td></tr>
+<tr><th>③ 3倍（初日の結果が良い時だけ・効率は落ちる領域）</th><td>約¥7,890</td><td>約¥36,800</td><td>約¥11,000〜81,000</td></tr>
+</tbody></table>
+<p class="cap">広告売上の見込みは、追加1円の広告売上を「低い年0.3〜高い年2.2」で掛けた幅です。幅が大きいので、毎日見て止める運用が前提です。</p>
+<div class="box"><b>進め方（段階的に追加）</b><br>
+1. セール前日に広告のステータス・在庫・カートボックスを確認（9月の「利用資格なし」の再発防止）<br>
+2. 初日は①から。<b>入札は¥85〜100のまま固定</b>し、増やすのは「予算の枠」と「対象（キーワード・商品）の追加」だけ<br>
+3. 2日目に追加分の広告売上を見て、基準を超えていれば②、さらに超えていれば③へ<br>
+4. <b>基準：追加1円の広告売上が、1÷粗利率を下回ったら戻す</b>（粗利率が分かるまでは仮に1.0）。2日続けて下回ったら前の段階に戻す<br>
+5. セール明けの翌日に通常へ戻す</div>
+<h2 style="margin-top:18px">お金の出どころ</h2>
+<table class="wrapt"><thead><tr><th>財源</th><th>金額の目安</th></tr></thead><tbody>
+<tr><th>① Meta −30%の振り替え（BF 5日前〜窓の終わり、約12日）</th><td>約¥13,700</td></tr>
+<tr><th>② 12月にAmazonを少し絞って浮く分（¥2,630→¥2,300×31日）</th><td>約¥10,200</td></tr>
+<tr><th>①＋②</th><td><b>約¥23,900</b></td></tr>
+<tr><th>②（2倍）の追加費用</th><td>約¥18,400</td></tr><tr><th>③（3倍）の追加費用</th><td>約¥36,800</td></tr>
+</tbody></table>
+<p class="cap">②は②は12月に使うお金なので、BFの時点では先にその分を追加で用意することになります。②（2倍）までは社内の振り替えで賄えます。③（3倍）まで行くなら、足りない約¥1.3万円分は新しい枠として客に確認が必要です。BFで客側が広告を増やす場合は、二重に追加しないよう、誰が増額するかを先に決めます。</p>
+</section>
+
+<section><h2><span class="num">6</span>MetaとYahooを季節で動かす案</h2>
+<p class="lead">結論：Amazonのように動かす強い根拠はありません。ただし、動かすなら下の3案。</p>
+<h2 style="margin-top:8px">根拠になるデータ</h2>
+<table class="wrapt"><thead><tr><th></th><th>自社EC購入<br>(新規)</th><th>Meta費</th><th>Yahoo費</th><th>1件あたり<br>(Meta+Yahoo)</th></tr></thead><tbody><tr><th>2025年10月</th><td><b>5件</b></td><td>0.8万</td><td>5.5万</td><td>—</td></tr><tr><th>2025年11月</th><td><b>7件</b></td><td>1.6万</td><td>5.5万</td><td>¥10,159</td></tr><tr><th>2025年12月</th><td><b>10件</b></td><td>1.6万</td><td>5.2万</td><td>¥6,867</td></tr><tr><th>2026年1月</th><td><b>18件</b></td><td>4.1万</td><td>2.2万</td><td>¥3,477</td></tr><tr><th>2026年2月</th><td><b>14件</b></td><td>2.7万</td><td>3.0万</td><td>¥4,083</td></tr><tr><th>2026年3月</th><td><b>13件</b></td><td>10.3万</td><td>2.3万</td><td>¥9,645</td></tr><tr><th>2026年4月</th><td><b>17件</b></td><td>9.7万</td><td>2.1万</td><td>¥6,958</td></tr><tr><th>2026年5月</th><td><b>16件</b></td><td>10.9万</td><td>2.1万</td><td>¥8,092</td></tr><tr><th>2026年6月</th><td><b>27件</b></td><td>11.3万</td><td>2.1万</td><td>¥4,964</td></tr><tr><th>2026年7月</th><td><b>16件</b></td><td>11.8万</td><td>2.1万</td><td>¥8,693</td></tr><tr><th>2026年8月</th><td><b>12件</b></td><td>11.8万</td><td>2.0万</td><td>¥11,464</td></tr><tr><th>2026年9月</th><td><b>18件</b></td><td>11.5万</td><td>2.0万</td><td>¥7,470</td></tr></tbody></table>
+<p class="cap"><b>自社ECの購入は、Amazonのように12月に落ちていません</b>（10月5→11月7→12月10→1月18件）。Metaは2025年11月に始まったばかりで、1月から費用が増え、5月に月11万円まで増えてから、購入は16〜27件に振れています。8月は1件あたり約¥11,500と最も悪化しました。つまり自社ECの件数は、季節より「Metaを始めた・増やした」「LP・カート・流入」で決まっています（1年分・確度B）。4月までの購入数は、カラーミーの注文CSV（定期の新規）と代引きスプシの申込日から集計しました（4月以降はスプシ正本）。</p>
+<table class="wrapt" style="margin-top:12px"><thead><tr><th>Yahoo 2025年</th><th>費用</th><th>クリック</th><th>1クリック単価</th></tr></thead><tbody><tr><th>10月</th><td>5.5万</td><td>1396</td><td>¥39</td></tr><tr><th>11月</th><td>5.5万</td><td>1220</td><td>¥45</td></tr><tr><th>12月</th><td>5.2万</td><td>1058</td><td>¥50</td></tr></tbody></table>
+<p class="cap">Yahooは費用がほぼ同じでも、10月→12月でクリックが約24%減り、単価が約27%上がりました（確度A・1年分）。ただし12月は自社EC購入が10件に増え、1件あたり費用も¥10,159から¥6,867に下がっています。クリック単価だけで冬にYahooを絞る根拠にはなりません。</p>
+<h2 style="margin-top:18px">案</h2>
+<table class="wrapt"><thead><tr><th>案</th><th>内容</th><th>根拠・確度</th></tr></thead><tbody>
+<tr><th><b>A（基本）</b></th><td style="text-align:left">MetaもYahooも、今の額のまま動かさない</td><td style="text-align:left">季節で動かす証拠が無い。変えるほど学習が崩れるリスク（A）</td></tr>
+<tr><th>B</th><td style="text-align:left">Amazonのセール期間だけ、Metaを−30%（5日前に1段）。終わったら段階的に戻す</td><td style="text-align:left">セール期間は自社EC購入が1日0.37件（それ以外0.46件）とやや少ない（約−20%）。件数が小さい（B〜C）。効果は小さいので、Amazonへの追加投入の財源として使う位置づけ</td></tr>
+<tr><th>C（見送り）</th><td style="text-align:left">12月にYahooを絞る案</td><td style="text-align:left">単価は+27%でも、12月の自社EC購入は10件・1件あたり¥6,867と良かったので、絞る根拠なし（A）</td></tr>
+</tbody></table>
+<div class="box"><b>おすすめ：AをベースにBだけ足す（Metaを「Amazon追加投入の財源」として使う）。Yahooは通年で動かさない。</b><br>Metaは学習期間中の広告セットに触らず、1日の変更は±30%以内にします。夏（8月）のMetaを下げる案は、8月が悪かった理由が「お盆の流入・カート」で季節の需要ではなく、根拠が弱いため入れていません。Metaは2025年11月開始の1年未満のため、「季節で動くか」はそもそも判定できません。</div>
+<p class="cap">もし「冬はMetaを下げ、夏に厚くする」といった方針があるなら、その根拠（客側の売上傾向など）を教えてください。1年分のデータだけでは、裏付けられません。</p>
+</section>
+
+<section><h2><span class="num">7</span>定期のお客様：いつ解約し、いくら使うか</h2>
+<p class="lead">「継続回数」＝何回目の届けまで続いたか。2025年1月以降に申込んだ定期185人（解約確定92人・停止の推定24人・継続中69人）<span class="tag">解約シート込み・確度B</span></p>
+<h2 style="margin-top:8px">続ける人の割合（回数が進むほど減る）</h2>
+<div class="prow"><div class="plab">1回目まで届いた人</div><div class="pbar"><i class="m" style="width:63.0%" title="1回目の後も続ける割合 63%"></i></div><div class="ptot">63%</div><div class="pmemo">1回目の直後に解約 64人（173人中 37%）</div></div><div class="prow"><div class="plab">2回目まで届いた人</div><div class="pbar"><i class="m" style="width:47.1%" title="2回目の後も続ける割合 47%"></i></div><div class="ptot">47%</div><div class="pmemo">2回目の直後に解約 23人（91人中 25%）</div></div><div class="prow"><div class="plab">3回目まで届いた人</div><div class="pbar"><i class="m" style="width:43.9%" title="3回目の後も続ける割合 44%"></i></div><div class="ptot">44%</div><div class="pmemo">3回目の直後に解約 4人（59人中 7%）</div></div><div class="prow"><div class="plab">4回目まで届いた人</div><div class="pbar"><i class="m" style="width:42.0%" title="4回目の後も続ける割合 42%"></i></div><div class="ptot">42%</div><div class="pmemo">4回目の直後に解約 2人（47人中 4%）</div></div><div class="prow"><div class="plab">5回目まで届いた人</div><div class="pbar"><i class="m" style="width:38.9%" title="5回目の後も続ける割合 39%"></i></div><div class="ptot">39%</div><div class="pmemo">5回目の直後に解約 3人（41人中 7%）</div></div><div class="prow"><div class="plab">6回目まで届いた人</div><div class="pbar"><i class="m" style="width:36.8%" title="6回目の後も続ける割合 37%"></i></div><div class="ptot">37%</div><div class="pmemo">6回目の直後に解約 2人（36人中 6%）</div></div><div class="prow"><div class="plab">7回目まで届いた人</div><div class="pbar"><i class="m" style="width:34.6%" title="7回目の後も続ける割合 35%"></i></div><div class="ptot">35%</div><div class="pmemo">7回目の直後に解約 2人（33人中 6%）</div></div><div class="prow"><div class="plab">8回目まで届いた人</div><div class="pbar"><i class="m" style="width:34.6%" title="8回目の後も続ける割合 35%"></i></div><div class="ptot">35%</div><div class="pmemo">8回目の直後に解約 0人（27人中 0%）</div></div><div class="prow"><div class="plab">9回目まで届いた人</div><div class="pbar"><i class="m" style="width:33.1%" title="9回目の後も続ける割合 33%"></i></div><div class="ptot">33%</div><div class="pmemo">9回目の直後に解約 1人（23人中 4%）</div></div><div class="prow"><div class="plab">10回目まで届いた人</div><div class="pbar"><i class="m" style="width:33.1%" title="10回目の後も続ける割合 33%"></i></div><div class="ptot">33%</div><div class="pmemo">10回目の直後に解約 0人（18人中 0%）</div></div><div class="prow"><div class="plab">11回目まで届いた人</div><div class="pbar"><i class="m" style="width:33.1%" title="11回目の後も続ける割合 33%"></i></div><div class="ptot">33%</div><div class="pmemo">11回目の直後に解約 0人（17人中 0%）</div></div><div class="prow"><div class="plab">12回目まで届いた人</div><div class="pbar"><i class="m" style="width:30.8%" title="12回目の後も続ける割合 31%"></i></div><div class="ptot">31%</div><div class="pmemo">12回目の直後に解約 1人（15人中 7%）</div></div><div class="prow"><div class="plab">13回目まで届いた人</div><div class="pbar"><i class="m" style="width:28.3%" title="13回目の後も続ける割合 28%"></i></div><div class="ptot">28%</div><div class="pmemo">13回目の直後に解約 1人（12人中 8%）</div></div>
+<p class="cap">棒＝その回数の後も続ける人の割合。<b>減り方が大きいのは1回目と2回目の直後</b>（1回目の後に約37%、2回目の後に約25%が解約）。3回目以降は1回ごとの解約が数%に落ち着きます。</p>
+<div class="cards"><div class="card">1回目の後に残る<b>63%</b></div><div class="card">3回目の後に残る<b>44%</b></div><div class="card">12回目の後に残る<b>31%</b></div></div>
+
+<h2 style="margin-top:20px">解約はいつ起きるか</h2>
+<div class="cards"><div class="card">申込から7日以内<b>19/92人</b></div><div class="card">35日以内<b>50/92人</b></div><div class="card">100日以内<b>76/92人</b></div></div>
+<p class="cap">確定している解約92人（7/4時点の名簿分）の半分は申込から約30日以内（中央値）。<b>つまり解約の山は申込後すぐ〜3か月。</b>暦の月による偏りは小さく（3〜5月・9月がやや多い／7月が少ない）、季節要因としては使えません。</p>
+
+<h2 style="margin-top:20px">解約の理由（解約シート122件のうち理由が分かる97件）</h2>
+<table class="wrapt"><thead><tr><th>理由（複数に当てはまる場合は上の分類を優先）</th><th>件数</th><th>割合</th></tr></thead><tbody><tr><th>余る・飲まない・減らない</th><td>22件</td><td>23%</td></tr><tr><th>他社が安い・他社を試す・他の水も買っている</th><td>20件</td><td>21%</td></tr><tr><th>体質・味・お腹に合わない</th><td>15件</td><td>15%</td></tr><tr><th>その他</th><td>12件</td><td>12%</td></tr><tr><th>価格・経済的理由</th><td>8件</td><td>8%</td></tr><tr><th>受取拒否・連絡不通・期間超過</th><td>8件</td><td>8%</td></tr><tr><th>生活の変化（転居・入院・不在・転勤）</th><td>7件</td><td>7%</td></tr><tr><th>お試しのつもり（1回限り）</th><td>5件</td><td>5%</td></tr></tbody></table>
+<p class="cap">理由が「不明」「無回答」などの25件は除いています。契約の内訳はカラーミー95件・不明1件・代引き26件。解約シートの氏名と注文CSVを照合し、「停止の推定」のうち21人を解約確定に直しました（照合できない氏名は推定のまま）。<b>上位2つ「余る・飲まない」「他社が安い・試す」で約4割</b>です。（分類は文言の一致による目安で、1件が複数の理由に当てはまることがあります）</p>
+<h2 style="margin-top:20px">申込時期別：3回目まで続く割合</h2>
+<table class="wrapt"><thead><tr><th></th><th>人数</th><th>3回目の後も続く</th><th>解約済み</th></tr></thead><tbody><tr><th>2025年</th><td>80人</td><td>45%</td><td>55人</td></tr><tr><th>2026年</th><td>105人</td><td>44%</td><td>61人</td></tr></tbody></table>
+<p class="cap">2026年は申込が新しく、まだ結論は出せません。2024年以前は古い解約が名簿から落ちている可能性があるため、除いています。</p>
+
+<h2 style="margin-top:20px">1人あたりの累計売上（LTV・40本入り）</h2>
+<table class="wrapt"><thead><tr><th></th><th>累計売上（期待値）</th></tr></thead><tbody><tr><th>1回目まで</th><td>¥1,980</td></tr><tr><th>2回目まで</th><td>¥4,475</td></tr><tr><th>3回目まで</th><td>¥6,339</td></tr><tr><th>4回目まで</th><td>¥8,077</td></tr><tr><th>6回目まで</th><td>¥11,284</td></tr><tr><th>12回目まで</th><td>¥19,404</td></tr></tbody></table>
+<p class="cap">初回¥1,980（半額）、2回目以降¥3,960（税込）で計算し、上の継続カーブで割り引いた平均です。<b>売上ベースで、原価・送料・手数料は引いていません。</b></p>
+<div class="box"><b>広告費との比較：</b>1人獲得するのにかかる費用（Meta＋Yahoo÷実購入）は、5月〜9月で約¥5,000〜11,500（直近9月は約¥7,470）。累計売上がこれを超えるのは<b>4回目まで届いた時点</b>です。1回目の¥1,980だけでは回収できず、<b>2回目・3回目まで続けてもらえるかが採算の分かれ目</b>。解約の山（1〜2回目の直後）を減らすことが、広告費を増やすより効きます。粗利が出たら、この表を粗利ベースに置き換えます。</div>
+<p class="cap">「停止の推定」＝7/4時点で継続中だったのに、発送サイクルの間隔を過ぎても10/16までの注文CSVに発送が無い人（解約が確定したわけではない。支払い不備による停止も含む）。注文CSVは50件ずつ6回の書き出しで、日付が重なって切れ目は見えませんが、取りこぼしがあれば停止は多めに出ます。「満了」128件（購入1回・サイクル空のため単発購入と推定）、初回発送前に解約した人、Amazon経由は含みません。</p>
+</section>
+
+<section><h2><span class="num">8</span>会議で決めたいこと</h2>
+<ol class="conc"><li>粗利率（原価）— 追加投入の止め時（追加1円の広告売上の基準）が決まらない</li><li>今年のAmazonセール日程と、参加するか</li><li>Googleを足すか、足すなら月の上限</li><li>BF期のAmazon広告は客側か、こちらか</li><li>定期の最新名簿（7/4以降）と、解約理由が取れるか</li></ol>
+<p class="cap">粗利が未取得のため、儲けの上限は「目安」です（2026年3・4月のMeta、1〜3月のYahoo、4〜6月のカラーミー注文は取り込み済み。10月のMetaは1〜18日で¥57,400・購入5件、1日あたり約¥3,190で9月（約¥3,820）より少なめ）。</p></section>
+
+</main></body></html>
