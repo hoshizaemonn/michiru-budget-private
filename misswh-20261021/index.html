@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>10/21 Miss WH — 何が変わって、何を聞くか</title>
+<style>
+  :root {
+    --ink: #1c1915;
+    --muted: #5c564c;
+    --paper: #f4f0e6;
+    --card: #fffdf8;
+    --line: #d9d0c0;
+    --last: #245c73;
+    --last-bg: #e7f2f6;
+    --now: #8a4b12;
+    --now-bg: #f8ead6;
+    --ask: #1f4d32;
+    --ask-bg: #e7f3ea;
+    --hold: #7a1f1f;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+    line-height: 1.55;
+  }
+  main { max-width: 980px; margin: 0 auto; padding: 28px 18px 64px; }
+  h1 { font-size: 1.7rem; line-height: 1.3; margin: 0 0 8px; }
+  .lead { color: var(--muted); margin: 0 0 22px; font-size: 1.02rem; }
+  h2 { font-size: 1.15rem; margin: 28px 0 12px; }
+  .grid { display: grid; gap: 14px; }
+  @media (min-width: 800px) { .two { grid-template-columns: 1fr 1fr; } }
+  .panel { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+  .panel h3 { margin: 0 0 12px; font-size: 1.05rem; }
+  .tag { display: inline-block; font-size: 0.78rem; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 999px; margin-bottom: 8px; }
+  .tag.last { background: var(--last-bg); color: var(--last); }
+  .tag.now { background: var(--now-bg); color: var(--now); }
+  .flow { display: flex; flex-direction: column; gap: 8px; }
+  .box {
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 1.05rem;
+  }
+  .box b { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.03em; margin-bottom: 2px; }
+  .box.last { background: var(--last-bg); }
+  .box.now { background: var(--now-bg); }
+  .arrow { text-align: center; color: var(--muted); font-size: 0.95rem; }
+  .unknown {
+    margin-top: 14px;
+    border: 2px dashed var(--hold);
+    color: var(--hold);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-weight: 700;
+    background: #fff6f4;
+  }
+  ol.asks { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  ol.asks li {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 12px;
+    align-items: start;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px;
+  }
+  .n {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--ask); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 1.15rem;
+  }
+  ol.asks strong { display: block; font-size: 1.05rem; }
+  ol.asks span { color: var(--muted); }
+  .later {
+    margin-top: 14px;
+    background: var(--ask-bg);
+    border-radius: 14px;
+    padding: 14px 16px;
+  }
+  .later b { color: var(--ask); }
+  footer { margin-top: 22px; color: var(--muted); font-size: 0.88rem; }
+</style>
+</head>
+<body>
+<main>
+  <p class="tag last">社内用・10/21 の説明の前に見る</p>
+  <h1>箱を渡して終わり、ではなくなった</h1>
+  <p class="lead">Miss WH の橋本さんとの説明。去年と今年で、お金の取り方が違って見える。違うかどうかは、明日の4つが分かるまで決まらない。</p>
+
+  <div class="grid two">
+    <section class="panel">
+      <span class="tag last">去年・メールで確認できたこと</span>
+      <h3>箱を買ってもらって、ライブで売った</h3>
+      <div class="flow">
+        <div class="box last"><b>ミチル</b>24本入りを1箱</div>
+        <div class="arrow">↓ 2,016円で売る</div>
+        <div class="box last"><b>Miss WH</b>先に買い取る。返品なし</div>
+        <div class="arrow">↓ ライブで売る（書面はアヒル）</div>
+        <div class="box last"><b>視聴者</b>いくらで買っても、ミチルの入金は箱の2,016円</div>
+      </div>
+    </section>
+    <section class="panel">
+      <span class="tag now">今年・10/7 の橋本さんの返信</span>
+      <h3>売り方も、お金の取り方も、文面が違う</h3>
+      <div class="flow">
+        <div class="box now"><b>場所</b>ぞうねこは再交渉できる。売り方は去年と違う。Miss WH のサイトでも売りたい</div>
+        <div class="arrow">↓</div>
+        <div class="box now"><b>お金</b>売れた金額からマージン。内容によっては固定費。2,016円とは書いていない</div>
+        <div class="arrow">↓</div>
+        <div class="box now"><b>書いていないこと</b>ライブをやめる、とは書いていない。箱を先に買い取る、とも書いていない</div>
+      </div>
+      <div class="unknown">ここが未確定。やる・やらないは、ここの答え次第。</div>
+    </section>
+  </div>
+
+  <h2>明日、聞くこと</h2>
+  <ol class="asks">
+    <li><div class="n">1</div><div><strong>どこで売るか</strong><span>ライブは続けるのか。店はぞうねこか、Miss WH のサイトか、両方か。視聴者がお金を払う画面はどこか。</span></div></li>
+    <li><div class="n">2</div><div><strong>お金の取り方</strong><span>箱を先に2,016円で買い取るのか。売れた金額からマージンを抜くのか。何割か。固定費はいくらか。毎月か、最初だけか。</span></div></li>
+    <li><div class="n">3</div><div><strong>入金</strong><span>視聴者の支払いは誰に入るか。ミチルに残るのは箱の卸値か、売上からマージンと固定費を引いた残りか。</span></div></li>
+    <li><div class="n">4</div><div><strong>他の商品の実績を1件</strong><span>水でなくてよい。何の商品か、何ヶ月で、売上はいくらか。払った固定費と、抜かれたマージンの率。手元に残った金額。</span></div></li>
+  </ol>
+
+  <div class="later">
+    <b>明日は聞かない。</b>
+    4の数字（期間・固定費・売上）をもらったあと、同じ金額を Meta や Amazon の広告に回した場合と比べる。比べるのはこちら。
+  </div>
+
+  <footer>
+    店頭価格、在庫を先に買い取るか、去年の出荷本数、契約を途中でやめられるかは、1〜3が見えてから。<br>
+    原価は未確認。その場で黒字とは言えない。先方にはこのページを送らない。
+  </footer>
+</main>
+</body>
+</html>
